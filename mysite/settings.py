@@ -1,6 +1,7 @@
 
 from pathlib import Path
 import os
+import logging
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -12,11 +13,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-zxejxwm9zfybbb_dr9r24uz@qxxa&%53(aqc3(j^24#ai871uc'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 # ALLOWED_HOSTS = ['*']
 ALLOWED_HOSTS = ["https://web-production-503e.up.railway.app","web-production-503e.up.railway.app","hydetesting.com","www.hydetesting.com"]
-CSRF_TRUSTED_ORIGINS = ["https://web-production-503e.up.railway.app","web-production-503e.up.railway.app","hydetesting.com","www.hydetesting.com"]
+# CSRF_TRUSTED_ORIGINS = ["https://web-production-503e.up.railway.app","web-production-503e.up.railway.app","hydetesting.com","www.hydetesting.com"]
 
 # Application definition
 
@@ -122,3 +123,27 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Update the log file path to be relative to the project's base directory
+log_file_directory = os.path.join(BASE_DIR, 'logs')
+if not os.path.exists(log_file_directory):
+    os.makedirs(log_file_directory)
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'file': {
+            'level': 'ERROR',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(log_file_directory, 'error.log'),
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['file'],
+            'level': 'ERROR',
+            'propagate': True,
+        },
+    },
+}
