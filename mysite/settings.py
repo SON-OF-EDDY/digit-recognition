@@ -17,7 +17,7 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 # ALLOWED_HOSTS = ["https://web-production-503e.up.railway.app","web-production-503e.up.railway.app","hydetesting.com","www.hydetesting.com"]
-#CSRF_TRUSTED_ORIGINS = ['https://hydetesting.com',"https://web-production-503e.up.railway.app","web-production-503e.up.railway.app","hydetesting.com","www.hydetesting.com"]
+CSRF_TRUSTED_ORIGINS = ['https://hydetesting.com',"https://web-production-503e.up.railway.app","web-production-503e.up.railway.app","hydetesting.com","www.hydetesting.com"]
 #ALLOWED_HOSTS = ["hydetesting.com/"]
 
 # Application definition
