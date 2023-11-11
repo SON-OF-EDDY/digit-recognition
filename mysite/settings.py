@@ -13,8 +13,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-zxejxwm9zfybbb_dr9r24uz@qxxa&%53(aqc3(j^24#ai871uc'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
+DEBUG = False
 
 # ALLOWED_HOSTS = ['*']
 # ALLOWED_HOSTS = ["https://web-production-503e.up.railway.app","web-production-503e.up.railway.app","hydetesting.com","www.hydetesting.com"]
